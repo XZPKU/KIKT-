@@ -53,16 +53,16 @@ We use [RAFT](https://github.com/princeton-vl/RAFT) to generate the optical flow
 
 ```
 cd ~/RAFT   ## download the RAFT ckpt accordingly
-python gen_test.py
-python gen_train.py
+python process_optical_flow.py
+python post_process.py
 ```
-Then place the generated optical flow file within folder ~/data/action-genome/.
-### Step2. Relation-aware Refine Training
+Then place the generated optical flow file for train and test set under folder ~/data/action-genome/.
+### Step2. Relation-aware Refine Model Training
 ```
 cd ~/refine
 python scripts/train.py 
 ```
-### Step3. PLA Training
+### Step3. Scene Graph Generation Model Training
 ```
 cd ~/PLA
 python train.py --cfg configs/oneframe.yml # for image SGG model
