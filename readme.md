@@ -5,11 +5,11 @@ Following PLA/environment.yaml to construct the virtual environment.
 
 ## Dataset
 ### Data preperation
-1. For object detection results, we use pre-trained object detector [VinVL](https://github.com/pzzhang/VinVL) to generate detection results, you can follow our baseline [PLA](https://github.com/zjucsq/PLA/tree/master) to generate them on your own.
+1. For object detection results, we use pre-trained object detector [VinVL](https://github.com/pzzhang/VinVL), you can follow steps in our baseline [PLA](https://github.com/zjucsq/PLA/tree/master) to generate them on your own, or directly use our pre-processed detection results in step 3 below.
 
 2. For dataset, download from [Action Genome](https://github.com/JingweiJ/ActionGenome).
 
-3. Download necessary weakly-supervised annotation files and pre-trained weight are stored in [](), the final data structure should be like
+3. Download necessary weakly-supervised annotation files and pre-trained weight (stored in []()), the final data structure should be like
 
 ```
 | -- data
@@ -45,7 +45,7 @@ python test.py --cfg configs/final.yml # for final scene graph generation perfor
 | Model  | W/R@10|W/R@20|W/R@50|N/R@10|N/R@20|N/R@50|weight|
 | --- | ----------- |----- |----- |----- |----- |----- |----- |
 |PLA(baseline)    | 14.32|20.42|25.43|14.78|21.72|30.87|-|
-| Ours  | 17.50 |22.46| 27.73| 18.67| 24.52| 33.65|[weight]()|
+| Ours  | 17.24 |22.27| 27.39| 18.41| 24.30| 33.25|[weight]()|
 ## Training
 
 ### Step1. Optical Flow Extraction
