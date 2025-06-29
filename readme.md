@@ -14,11 +14,10 @@ Following PLA/environment.yaml to construct the virtual environment.
 ```
 | -- data
      | -- action-genome
-           | -- frames     ## sample frames
-           | -- videos     ## original videos
-           | -- AG_detection_results   ## pre-trained object detector results
-           | -- annotations ## weakly supervised scene graph generation annotations
-           | -- AG_detection_results_refine ## refined object detector results
+           | -- frames    
+           | -- videos    
+           | -- annotations 
+           | -- AG_detection_results_refine 
 | -- refine
       | -- output # pre-trained relation aware transformer weight
 | -- PLA
@@ -47,7 +46,7 @@ python test.py --cfg configs/final.yml # for final scene graph generation perfor
 | Model  | W/R@10|W/R@20|W/R@50|N/R@10|N/R@20|N/R@50|weight|
 | --- | ----------- |----- |----- |----- |----- |----- |----- |
 |PLA(baseline)    | 14.32|20.42|25.43|14.78|21.72|30.87|-|
-| Ours  | 17.24 |22.27| 27.39| 18.41| 24.30| 33.25|[weight]()|
+| Ours  | 17.56| 22.33|27.45| 18.76|24.49 |33.92|[weight]()|
 ## Training
 
 ### Step1. Optical Flow Extraction
@@ -67,7 +66,7 @@ python scripts/train.py
 ### Step3. Scene Graph Generation Model Training
 ```
 cd ~/PLA
-python train.py --cfg configs/oneframe.yml # for image SGG model, after this training, select the best oneframe ckpt as model_path in oneframe.yml
+python train.py --cfg configs/oneframe.yml # after this line training, select the best oneframe ckpt as the model_path parameter in oneframe.yml for next line training
 python train.py --cfg configs/final.yml # for video SGG model
 ```
 ## Acknowledgement
