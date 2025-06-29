@@ -18,16 +18,18 @@ Following PLA/environment.yaml to construct the virtual environment.
            | -- videos     ## original videos
            | -- AG_detection_results   ## pre-trained object detector results
            | -- annotations ## weakly supervised scene graph generation annotations
-           | -- AG_detection_results_refine ## refined object detector results(optional)
+           | -- AG_detection_results_refine ## refined object detector results
 | -- refine
       | -- output # pre-trained relation aware transformer weight
 | -- PLA
       | -- model # pre-trained scene graphe generation weight
+| -- RAFT
+      
 ```
 
 ## Evaluation
 
-### Relation-Aware Transformer Model
+### Object Detection Performance on Relation-Aware Transformer(TIKT) Model
 ```
 cd ~/refine
 python scripts/evaluate.py # evaluate the performance of object detection
@@ -37,7 +39,7 @@ python scripts/evaluate.py # evaluate the performance of object detection
 |PLA(baseline)    | 11.4 |11.6 |33.3 |37.6| -|
 | Ours  | 24.3|26.6|30.2|45.1|[weight]()|
 
-### Scene Graph Generation Model
+### Scene Graph Generation Performance on DSGG(PLA) Model
 ```
 cd ~/PLA
 python test.py --cfg configs/final.yml # for final scene graph generation performance evaluation
@@ -65,7 +67,7 @@ python scripts/train.py
 ### Step3. Scene Graph Generation Model Training
 ```
 cd ~/PLA
-python train.py --cfg configs/oneframe.yml # for image SGG model
+python train.py --cfg configs/oneframe.yml # for image SGG model, after this training, select the best oneframe ckpt as model_path in oneframe.yml
 python train.py --cfg configs/final.yml # for video SGG model
 ```
 ## Acknowledgement
